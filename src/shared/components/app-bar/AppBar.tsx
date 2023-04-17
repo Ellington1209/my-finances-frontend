@@ -1,17 +1,18 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { useState } from "react";
-import { Icon, IconButton, Theme, Typography, useMediaQuery, useTheme, AppBar, Toolbar, Tooltip, Avatar, Menu, MenuItem, Button, Switch } from '@mui/material';
+import { Icon, IconButton, Theme, Typography, useMediaQuery, useTheme, AppBar, Toolbar, Tooltip, Avatar, Menu, MenuItem,  Switch } from '@mui/material';
 import { Box } from '@mui/system';
 
-import { useAppThemeContext, useDrawerContext } from '../contexts';
+import { useAppThemeContext, useAuthContext, useDrawerContext } from '../../contexts';
+import emojis from '../../../utils/emojis';
 
 
-interface ILayoutBaseDePaginaProps {
-    titulo: string;
+interface IAppBarProps {
+
     children: ReactNode;
-    barraDeFerramentas?: ReactNode;
+  
 }
-export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({ children, titulo, barraDeFerramentas }) => {
+export const MenuAppBar: React.FC<IAppBarProps> = ({ children }) => {
     const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
     const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
     const theme = useTheme();
@@ -30,6 +31,13 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({ childre
     const { toggleDrawerOpen } = useDrawerContext();
     const label = { inputProps: { 'aria-label': 'Switch demo' } };
     const { toggleTheme } = useAppThemeContext();
+    const { logout } = useAuthContext();
+    
+    
+    const emoji = useMemo(() => {
+        const indice = Math.floor(Math.random() * emojis.length);
+        return emojis[indice];
+    },[]);
 
     return (
         <Box height="100%" display="flex" flexDirection="column" gap={1}>
@@ -42,14 +50,7 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({ childre
                             </IconButton>
                         )}
 
-                        <Typography
-                            overflow="hidden"
-                            whiteSpace="nowrap"
-                            textOverflow="ellipses"
-                            variant={smDown ? 'h5' : mdDown ? 'h4' : 'h3'}
-                        >
-                            {titulo}
-                        </Typography>
+                  
                         <Box display='flex' alignItems="center" marginLeft='25px'>
                             <Typography>Dia</Typography>
                             <Tooltip title="Selecionar thema" >
@@ -65,10 +66,8 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({ childre
                                     <Typography >Olá!</Typography>
 
                                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 1 }}>
-                                        <Avatar
-                                            alt=""
-                                            src=''
-                                        />
+                                        <Avatar sx={{fontSize:'38px'}}>{emoji}</Avatar>                                           
+                                      
                                     </IconButton>
                                 </Box>
                             </Tooltip>
@@ -88,31 +87,14 @@ export const LayoutBaseDePagina: React.FC<ILayoutBaseDePaginaProps> = ({ childre
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                <MenuItem>
-                                    <label htmlFor="foto">
-                                        <input
-                                            style={{ display: "none" }}
-                                            id="foto"
-                                            name="foto"
-                                            key="foto"
-                                            type="file"
-                                        //onChange={handleUploadImage}
-                                        />
-                                        <Button
-                                            color="secondary"
-                                            variant="contained"
-                                            component="span"
-                                        >
-                                            + Foto
-                                        </Button>
-                                    </label>
-                                </MenuItem>
+                              
 
-                                <MenuItem >
+                                <MenuItem  onClick={logout}>
                                     <Typography
                                         textAlign="center"
                                         fontSize={16}
                                         sx={{ color: "black !important" }}
+                                        
                                     >
                                         Sair
                                     </Typography>

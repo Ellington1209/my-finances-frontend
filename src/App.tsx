@@ -1,9 +1,11 @@
-
+import { DrawerProvider, AppThemeProvider, AuthProvider } from "./shared/contexts";
 
 import { BrowserRouter } from "react-router-dom"
+
+import './shared/forms/TraducoesYup';
 import { AppRoutes } from './routes';
-import { MenuLateral } from "./shared/components/menu-lateral";
-import { DrawerProvider, AppThemeProvider} from "./shared/contexts";
+
+
 
 
 
@@ -11,15 +13,20 @@ import { DrawerProvider, AppThemeProvider} from "./shared/contexts";
 
 function App() {
   return (
-    <AppThemeProvider>
-        <DrawerProvider>
-      <BrowserRouter>
-        <MenuLateral>
-          <AppRoutes />
-        </MenuLateral>
-      </BrowserRouter>
-      </DrawerProvider>
-    </AppThemeProvider>
+    <AuthProvider>
+      <AppThemeProvider>
+
+          <DrawerProvider>
+            <BrowserRouter>
+
+                  <AppRoutes />
+              
+              
+            </BrowserRouter>
+          </DrawerProvider>
+  
+      </AppThemeProvider>
+    </AuthProvider>
   );
 }
 

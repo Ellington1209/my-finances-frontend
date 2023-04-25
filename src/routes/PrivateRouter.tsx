@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useAuthContext } from "../shared/contexts";
 import { MenuAppBar, MenuLateral } from "../shared/components";
+import Layout from "../shared/Layouts";
 
 
 
@@ -16,7 +17,9 @@ export const PrivateRoutes: React.FC<IPrivateRoutesProps> = ({ children }) => {
     return (
       <MenuLateral>
         <MenuAppBar>
-          {children}
+          <Layout>
+            {children}
+          </Layout>
         </MenuAppBar>
       </MenuLateral>
     )

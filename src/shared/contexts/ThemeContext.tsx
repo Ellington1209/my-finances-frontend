@@ -26,7 +26,7 @@ export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({ children })
     setThemeName(oldThemeName => oldThemeName === 'light' ? 'dark' : 'light');
   }, []);
 
-  const theme = useMemo(() => {
+   const theme = useMemo(() => {
     if (themeName === 'light') return LightTheme;
 
     return DarkTheme;
@@ -37,7 +37,7 @@ export const AppThemeProvider: React.FC<IAppThemeProviderProps> = ({ children })
     <ThemeContext.Provider value={{ themeName, toggleTheme }}>
       <ThemeProvider theme={theme}>
         <GlobalStyles/>
-        <Box width="100vw" height="100vh" bgcolor={theme.palette.background.default}>
+        <Box  width="100vw" height="100vh" bgcolor={theme.palette.background.default} >
           {children}
         </Box>
       </ThemeProvider>

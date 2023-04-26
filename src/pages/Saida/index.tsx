@@ -11,13 +11,13 @@ const options = [
   { value: 3, label: 'Option 3' },
 ];
 
-const Dashboard: React.FC = () => {
+const Saida: React.FC = () => {
   const { themeName } = useAppThemeContext();
 
   return (
-    <Grid container>
+    <Grid container  >
       <Grid item xs={12}>
-        <ContentHeader title="Titulo" linerColor="red">
+        <ContentHeader title="Saída" linerColor="red">
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
               <AutoComplete options={options} color="secondary" label="Mes" />
@@ -102,4 +102,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Saida;

@@ -1,4 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import {  createGlobalStyle } from "styled-components";
+
+
 
 
 const GlobalStyles = createGlobalStyle`
@@ -24,7 +26,10 @@ const GlobalStyles = createGlobalStyle`
       font-family: 'Roboto', sans-serif;  height: 100vh;
       width: 100vw;
       overflow-x: hidden;
+      
     }
+
+
 
 
 `

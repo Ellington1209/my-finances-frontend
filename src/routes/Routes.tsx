@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Dashboard, Login } from '../pages';
+import { Dashboard, Login, Saida } from '../pages';
 import { useDrawerContext } from '../shared/contexts';
 import { PrivateRoutes } from './PrivateRouter';
 import List from '../pages/List';
@@ -44,6 +44,7 @@ export const AppRoutes = () => {
     <Route path="/login"element={<Login />}/>
     <Route path='/dashboard' element={<PrivateRoutes ><Dashboard/></PrivateRoutes>} />         
     <Route path='/lista' element={<PrivateRoutes ><List/></PrivateRoutes>} />         
+    <Route path='/saida' element={<PrivateRoutes ><Saida/></PrivateRoutes>} />         
   </Routes>
   );
 };

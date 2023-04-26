@@ -15,8 +15,8 @@ const AutoComplete: React.FC<IAutoComplete> = ({ color, label, options }) => {
   return (
     <Autocomplete
       disablePortal    
-      options={options}
-      sx={{ width: 300 }}
+      options={options}  
+      fullWidth    
       renderInput={(params) => <TextField {...params} label={label} color={color} />}
       getOptionLabel={(option) => option.label}
     />

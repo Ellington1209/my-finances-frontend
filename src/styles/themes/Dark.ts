@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import {   grey, blueGrey } from '@mui/material/colors';
+import {   grey, deepPurple } from '@mui/material/colors';
 
 export const DarkTheme = createTheme({
   typography: {
@@ -37,7 +37,7 @@ export const DarkTheme = createTheme({
     },
     h6: {
       fontWeight: 400,
-      fontSize: '1.2rem',
+      fontSize: '2.2rem',
        color:grey[100]
     },
     body1: {
@@ -79,9 +79,9 @@ export const DarkTheme = createTheme({
       contrastText: grey[100],
     },
     secondary: {
-      main: blueGrey[500],
-      dark: blueGrey[400],
-      light: blueGrey[300],
+      main: deepPurple[500],
+      dark: deepPurple[400],
+      light: deepPurple[300],
       contrastText: grey[100],
     },
     background: {

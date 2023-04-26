@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { cyan,  grey } from '@mui/material/colors';
+import { blueGrey,  grey } from '@mui/material/colors';
 
 export const LightTheme = createTheme({
   typography: {
@@ -22,7 +22,7 @@ export const LightTheme = createTheme({
     },
     h3: {
       fontWeight: 600,
-      fontSize: '1.8rem',
+      fontSize: '2rem',
        color:grey[900]
     },
     h4: {
@@ -36,8 +36,8 @@ export const LightTheme = createTheme({
       color:grey[900]
     },
     h6: {
-      fontWeight: 400,
-      fontSize: '1.2rem',
+      fontWeight: 500,
+      fontSize: '2.2rem',
        color:grey[900]
     },
     body1: {
@@ -61,7 +61,7 @@ export const LightTheme = createTheme({
        color:grey[900]
     },
     subtitle2: {
-      fontWeight: 600,
+      fontWeight: 500,
       fontSize: '1.4rem',
        color:grey[900]
     },
@@ -80,9 +80,9 @@ export const LightTheme = createTheme({
       contrastText: grey[900],
     },
     secondary: {
-      main: cyan[500],
-      dark: cyan[400],
-      light: cyan[300],
+      main: blueGrey[500],
+      dark: blueGrey[600],
+      light: blueGrey[400],
       contrastText: '#ffffff',
     },
     background: {

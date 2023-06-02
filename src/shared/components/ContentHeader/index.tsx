@@ -1,4 +1,4 @@
-import { Box,  Grid, Paper, Typography, useMediaQuery, Theme} from "@mui/material";
+import { Box,  Grid, Paper, Typography} from "@mui/material";
 import { Styles } from './Styles';
 
 interface IContentHeaderProps {
@@ -13,20 +13,20 @@ const ContentHeader: React.FC<IContentHeaderProps> = ({
   children
 }) => {
   const classes = Styles({ linerColor });
-  const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+ 
  
 
 
   return (
     <Grid container>
-      <Grid item xs={12}>
+      <Grid item xs={12} >
         <Box width="100%" component={Paper} display="flex" justifyContent="space-between">
-          <Box padding={2}>
-            <Typography sx={classes.title} variant={smDown ? 'h3' : 'h1'}>{title}</Typography>
-          </Box>
-          <Box margin={2}>
+          <Grid xs={12} padding={1}>
+            <Typography sx={classes.title} variant='h1'>{title}</Typography>
+          </Grid>
+          <Grid xs={12} sm={4} margin={2}>
             {children}
-          </Box>
+          </Grid>
         </Box>
       </Grid>
     </Grid>

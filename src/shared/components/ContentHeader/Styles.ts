@@ -9,13 +9,16 @@ export const Styles = ({ linerColor }: ItitleProps) => {
       "&::after": {
         content: "''",
         display: "block",
-        width: "55px",
+        width: "65px",
         borderBottom: `10px solid ${linerColor}`,
         position: "absolute",
         bottom: "-10px",
-        left: "25%",
+        left: "3%",
         transform: "translateX(-50%)",
+        '@media (max-width: 600px)': { // Estilos para telas xs
+          left: '18%',
+        },
       },
     },
-  }
+  };
 };

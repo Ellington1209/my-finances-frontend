@@ -27,12 +27,12 @@ export const AppRoutes = () => {
       },
       {
         icon: 'arrow_downward',
-        path: '/dashboard',
+        path: '/saida',
         label: 'Saida',
       },
       {
         icon: 'logout',
-        path: '/dashboard',
+        path: '/saida',
         label: 'Sair',
       },
     ]);

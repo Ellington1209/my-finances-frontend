@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Box, Button, Card, CardActions, CardContent, CircularProgress, TextField, Typography } from '@mui/material';
+//import { useNavigate  } from 'react-router-dom';
+import { Box, Button, Card, CardActions, CardContent, CircularProgress, TextField, CardMedia } from '@mui/material';
+import Logo from '../../image/logomoney.png'
 import * as yup from 'yup';
-
 import { useAuthContext } from '../../shared/contexts';
 
 
@@ -13,6 +14,7 @@ const loginSchema = yup.object().shape({
 
 export const Login: React.FC = () => {
   const { login } = useAuthContext();
+  //const navigate  = useNavigate ();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,6 +33,7 @@ export const Login: React.FC = () => {
         login(dadosValidados.email, dadosValidados.password)
           .then(() => {
             setIsLoading(false);
+           // navigate('/dashboard');
           });
       })
       .catch((errors: yup.ValidationError) => {
@@ -50,38 +53,57 @@ export const Login: React.FC = () => {
  
 
   return (
-    <Box width='100vw' height='100vh' display='flex' alignItems='center' justifyContent='center'>
+    <Box width='100vw' height='100vh' display='flex' alignItems='center' justifyContent='center'  
+     sx={{ background: 'linear-gradient(to bottom, gray, black)', }}>
 
       <Card >
-        <CardContent>
-          <Box display='flex' flexDirection='column' gap={2} width={350} height={180}>
-            <Typography variant='h6' align='center'>Identifique-se</Typography>
+        <CardContent sx={{backgroundColor:'#645b5b'}}>
+          <Box display='flex' flexDirection='column' gap={2} width={350} height={280} alignItems='center'  >
+   
+          <CardMedia
+          component="img"
+          height={130}
+          image={Logo}
+          alt="logo tipo"        
+        />
+          
 
             <TextField
               fullWidth
               type='email'
               label='Email'
+              variant="standard"             
               value={email}
               disabled={isLoading}
               error={!!emailError}
               helperText={emailError}
               onKeyDown={() => setEmailError('')}
               onChange={e => setEmail(e.target.value)}
+              inputProps={{
+                style: {
+                  color: '#e4e4f4',
+                },
+              }}
             />
 
             <TextField
               fullWidth
               label='Senha'
               type='password'
+              variant="standard"              
               value={password}
               disabled={isLoading}
               error={!!passwordError}
               helperText={passwordError}
               onKeyDown={() => setPasswordError('')}
               onChange={e => setPassword(e.target.value)}
+              inputProps={{
+                style: {
+                  color: '#e4e4f4',
+                },
+              }}
             />
           </Box>
-        </CardContent>
         <CardActions>
           <Box width='100%' display='flex' justifyContent='center' marginBottom={1}>
 
@@ -90,12 +112,14 @@ export const Login: React.FC = () => {
               disabled={isLoading}
               onClick={handleSubmit}
               endIcon={isLoading ? <CircularProgress variant='indeterminate' color='inherit' size={20} /> : undefined}
-            >
+              sx={{  background: 'linear-gradient(to right, #0000FF, #00FF00)', }}
+             >
               Entrar
             </Button>
 
           </Box>
         </CardActions>
+              </CardContent>
       </Card>
     </Box>
   );

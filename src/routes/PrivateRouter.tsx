@@ -12,7 +12,7 @@ interface IPrivateRoutesProps {
 
 export const PrivateRoutes: React.FC<IPrivateRoutesProps> = ({ children }) => {
   const { isAuthenticated } = useAuthContext();
-  if (!isAuthenticated) {
+  if (isAuthenticated) {
 
     return (
       <MenuLateral>

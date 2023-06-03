@@ -7,7 +7,7 @@ interface IAuth {
 
 const auth = async (username: string, password: string): Promise<IAuth | Error> => {
   try {
-    const { data } = await Api.post('/oauth/token', { grant_type: "password",  client_id: "4",  client_secret: "t4zfeTRp4Awes0FsJUSVJOSq3jwT8VIb3jU7OsSS", data: { username, password } });
+    const { data } = await Api.post('/oauth/token', { grant_type: "password",  client_id: "2",  client_secret: "0cN4ehykn0uo07mBk5x7B4dsxfUacs1wrtF3gmNn",  username, password  });
 
     if (data) {
       return data;

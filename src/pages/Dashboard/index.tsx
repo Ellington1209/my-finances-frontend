@@ -74,6 +74,7 @@ const Dashboard: React.FC = () => {
           <CardMensageBox />
         </Grid>
       </Grid>
+      
     </Grid>
   );
 };
